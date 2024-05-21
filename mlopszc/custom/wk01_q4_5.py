@@ -5,6 +5,7 @@ if 'test' not in globals():
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
+import pickle
 
 '''
 Q4. One-hot encoding
@@ -42,8 +43,7 @@ def transform_custom(*args, **kwargs):
     feature_names = dv.get_feature_names_out()
 
     # Print the feature names and feature matrix
-    print("No. of Features:\n", len(feature_names))
-    print("Feature Matrix:\n", X_train.toarray())
+    print("No. of Features:\n", len(feature_names)-1)
 
     # Train the model
     lr = LinearRegression()
@@ -52,9 +52,13 @@ def transform_custom(*args, **kwargs):
     # Make predictions and calculate RMSE
     y_pred = lr.predict(X_train)
 
-    rmse = root_mean_squared_error(y_train, y_pred, squared=False)
+    rmse = mean_squared_error(y_train, y_pred, squared=False)
     # Print the RMSE
     print(f"Root Mean Squared Error (RMSE): {rmse}")
+
+    # Save the model
+    with open('models/lin_reg.bin', 'wb') as f_out:
+        pickle.dump((dv, lr), f_out)
     return {}
 
 

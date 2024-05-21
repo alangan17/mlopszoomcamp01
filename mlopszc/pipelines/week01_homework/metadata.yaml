@@ -53,7 +53,7 @@ blocks:
   color: yellow
   configuration: {}
   downstream_blocks:
-  - wk01_q4
+  - wk01_q4_5
   executor_config: null
   executor_type: local_python
   has_callback: false
@@ -69,19 +69,36 @@ blocks:
 - all_upstream_blocks_executed: true
   color: yellow
   configuration: {}
+  downstream_blocks:
+  - wk01_q6
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: wk01_q4-5
+  retry_config: null
+  status: executed
+  timeout: null
+  type: custom
+  upstream_blocks:
+  - wk01_q3
+  uuid: wk01_q4_5
+- all_upstream_blocks_executed: true
+  color: teal
+  configuration: {}
   downstream_blocks: []
   executor_config: null
   executor_type: local_python
   has_callback: false
   language: python
-  name: wk01_q4
+  name: wk01_q6
   retry_config: null
-  status: updated
+  status: executed
   timeout: null
   type: custom
   upstream_blocks:
-  - wk01_q3
-  uuid: wk01_q4
+  - wk01_q4_5
+  uuid: wk01_q6
 cache_block_output_in_memory: false
 callbacks: []
 concurrency_config: {}

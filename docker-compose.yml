@@ -22,7 +22,7 @@ services:
     deploy:
       resources:
         limits:
-          memory: 8000M
+          memory: 32000M
     # minio:
     #   ## Use `docker compose --profile storage up -d` to spin up this container
     #   ## Local Object Storage
